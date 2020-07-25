@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dictionary lookup</title>
+    <style>
+        @keyframes rotation {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(359deg);
+            }
+        }
+
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #ddd;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #666;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #9e9e9e;
+        }
+
+        body.loading::after {
+            content: "\23F3";
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 4rem;
+            transition: all .3s ease-in-out;
+            animation: rotation 5s infinite;
+        }
+
+        pre {
+            width: 80%;
+            height: 95%;
+            overflow-y: auto;
+            margin: 1rem auto;
+            background: rgb(255, 255, 255);
+            padding: .5rem;
+            border-radius: .5rem;
+            box-shadow: 0 0px 8px 0 rgb(0 0 0 / 40%);
+            transition: 0.3s;
+            font-size: 20px;
+        }
+
+        pre:hover {
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+
+<body class="loading">
+    <pre id="json"></pre>
+    <script src="./index.js"></script>
+</body>
+
+</html>
